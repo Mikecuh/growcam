@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrowCam - Khmer Growtopia Private Server</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Fonts */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+      color: #ffffff;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Snow Effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-bb6c-622f-9de5-9dc39c93a278/raw?se=2025-08-04T06%3A53%3A23Z&sp=r&sv=2024-08-04&sr=b&scid=2c8b0aad-d47e-53cc-9db1-c980d89e037a&skoid=71e8fa5c-90a9-4c17-827b-14c3005164d6&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-03T22%3A02%3A15Z&ske=2025-08-04T22%3A02%3A15Z&sks=b&skv=2024-08-04&sig=V3qTqo1ooy/TKRZyRITZaXxDJF6YXuQbXcYvcaTVL5E%3D');
+      background-size: cover;
+      opacity: 0.15;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Section */
+    .page-section {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-section h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #f9f9f9;
+    }
+
+    .page-section p {
+      color: #ddd;
+      font-size: 15px;
+    }
+
+    /* Buttons Container */
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    /* Neon RGB Animated Button */
+    button {
+      position: relative;
+      background: #111;
+      color: #fff;
+      padding: 8px 18px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: bold;
+      overflow: hidden;
+      z-index: 1;
+      text-shadow: 0 0 3px #0ff, 0 0 6px #0ff;
+      animation: pulseGlow 2s infinite;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    button::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      background: linear-gradient(45deg, red, orange, yellow, green, cyan, blue, violet, red);
+      background-size: 400%;
+      border-radius: 8px;
+      z-index: -1;
+      filter: blur(5px);
+      animation: rgbGlow 4s linear infinite;
+    }
+
+    button::after {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      right: 1px;
+      bottom: 1px;
+      background-color: #111;
+      border-radius: 5px;
+      z-index: -1;
+    }
+
+    button:hover {
+      color: #0ff;
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+    }
+
+    @keyframes rgbGlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        text-shadow: 0 0 3px #0ff;
+      }
+      50% {
+        text-shadow: 0 0 8px #0ff, 0 0 12px #0ff;
+      }
+      100% {
+        text-shadow: 0 0 3px #0ff;
+      }
+    }
+
+    /* OS Tabs Container */
+    .os-tabs {
+      margin-top: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 15px rgba(0,255,255,0.2);
+      color: #eee;
+      font-size: 15px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 2px solid #0ff;
+      color: #0ff;
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Orbitron', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      background-color: #0ff;
+      color: #111;
+    }
+
+    .tab-content {
+      display: none;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .os-tabs ol {
+      padding-left: 20px;
+    }
+
+    .os-tabs a {
+      color: #0ff;
+      text-decoration: underline;
+    }
+
+    .os-tabs a:hover {
+      color: #66ffff;
+    }
+
+    /* Music Toggle Button */
+    #music-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+
+    #music-toggle button {
+      background: rgba(0, 255, 255, 0.1);
+      border: 2px solid #0ff;
+      color: 2px solid #0ff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      transition: 0.3s ease;
+    }
+
+    #music-toggle button:hover {
+      background: #0ff;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="home" class="page-section">
+    <h1>Welcome to GrowCam</h1>
+    <p>GrowCam is the best Khmer Growtopia Private Server built just for Cambodian players! Enjoy a smooth, exciting, and exclusive experience with custom features and a strong community. Join us now and grow your world with us!</p>
+  </section>
+
+  <section id="help" class="page-section">
+    <h2>GrowCam Community</h2>
+    <p>Join our Discord server for help, updates, and support.</p>
+    <div class="buttons-container">
+      <button onclick="window.open('https://dsc.gg/growcam', '_blank')">
+        <i class="fab fa-discord"></i> GrowCam Discord
+      </button>
+    </div>
+  </section>
+
+  <section id="howtoplay" class="page-section">
+    <h2>How to Play</h2>
+    <h3>Learn how to connect to GrowCam Server</h3>
+    <div class="buttons-container">
+      <button onclick="window.open('https://www.mediafire.com/file/99xylwpysecvgne/SpotyPS.txt/file', '_blank')">
+        <i class="fas fa-download"></i> Download Host (VHost)
+      </button>
+
+      <button onclick="copyText('https://growsoft.cc/android.txt')">
+        <i class="fas fa-copy"></i> Copy Powertunnel
+      </button>
+
+      <button onclick="copyText('https://growsoft.cc/ios.txt')">
+        <i class="fas fa-copy"></i> Copy iOS Host (Surge 5)
+      </button>
+
+      <button onclick="copyText(`91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`)">
+        <i class="fas fa-copy"></i> Copy Windows Host
+      </button>
+
+      <button onclick="copyText(`91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`)">
+        <i class="fas fa-copy"></i> Copy macOS Host
+      </button>
+    </div>
+  </section>
+
+  <!-- OS Tabs -->
+  <div class="os-tabs">
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="android">Android</button>
+      <button class="tab-btn" data-tab="ios">iOS</button>
+      <button class="tab-btn" data-tab="Windows">Windows</button>
+      <button class="tab-btn" data-tab="MacOS">MacOS</button>
+    </div>
+
+    <div class="tab-content active" id="android">
+      <ol>
+        <li>First, download Powertunnel APP from <a href="https://github.com/krlvm/PowerTunnel-Android/releases/download/v2.6.3/PowerTunnel.apk" target="_blank">here</a></li>
+        <li>Then click on the "Copy Powertunnel" button.</li>
+        <li>It will copy the powertunnel host link.</li>
+        <li>Open the powertunnel app, click the three-line icon, and click the host settings icon.</li>
+        <li>Paste the copied powertunnel host URL. Change the host update period from 12 hours to on start.</li>
+        <li>Done, then open "Growtopia" and Connect!</li>
+      </ol>
+    </div>
+
+    <div class="tab-content" id="ios">
+      <ol>
+        <li> Download App called: "Surge 5" from App Store. Surge 5 IOS</li>
+        <li>Press "OK",</li>
+        <li>Click on "Default.conf".</li>
+        <li>Click on "IMPORT" part - Download Profile from URL.</li>
+        <li>Then Click On "Copy iOS Host(Surge 5)" Button</li>
+        <li>Put url from your copy when click IOS host button above and click "OK" and "Done"</li>
+        <li>Press "SETUP" and then agree to policy by clicking "OK" and "Allow" for VPN Configuration!.</li>
+        <li>Done, then open "Growtopia" and Connect!</li>
+      </ol>
+    </div>
+    <div class="tab-content" id="MacOS">
+      <ol>
+        <li>Open Finder and, in Finder’s menu bar, select Go > Go to Folder.</li>
+        <li>In the box that appears, type the following location: /private/etc/hosts and press Return.</li>
+        <li>Drag the hosts file to your desktop: A new Finder window will open with your Mac’s hosts file selected. Click and drag the file out of the Finder window and drop it on your desktop. This will allow us to freely edit the file.</li>
+        <li>simply double-click on the hosts file, and it will display the file's contents in TextEdit.</li>
+        <li>Copy the "MacOs Host" Button</li>
+        <li>Save the file and then put it back where you found it, in the /private/etc/ folder</li>
+        <li>Done! Now, open Growtopia and connect!</li>
+      </ol>
+    </div>
+
+    <div class="tab-content" id="Windows">
+      <ol>
+        <li>Press ⊞ Win+R (Windows Key + R) to open up the "Run" window.</li>
+        <li>Type in C:\Windows\System32\drivers\etc in the textbox.</li>
+        <li>Find file named hosts.</li>
+        <li>Right-click on "hosts" file and edit it with Notepad/text editor.</li>
+        <li>Click On "Copy Window Host" Button</li>
+        <li>Add ip above.</li>
+        <li>Then Save and logon to your growtopia</li>
+      </ol>
+      </div>
+
+  <!-- Music Toggle -->
+  <div id="music-toggle">
+    <button id="toggleMusic">
+      <i class="fas fa-music"></i> Music: ON
+    </button>
+  </div>
+
+  <!-- YouTube Iframe (Hidden) -->
+  <div style="display: none;">
+    <iframe id="bgMusic" width="0" height="0" src="https://www.youtube.com/embed/f1rq13XtvSk?autoplay=1&loop=1&playlist=f1rq13XtvSk" frameborder="0" allow="autoplay"></iframe>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied the text u mfker");
+      });
+    }
+
+    // Tab switching
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        const tabId = btn.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    // Music toggle logic
+    const toggleBtn = document.getElementById("toggleMusic");
+    const bgMusic = document.getElementById("bgMusic");
+    let musicOn = true;
+
+    toggleBtn.addEventListener("click", () => {
+      musicOn = !musicOn;
+      if (musicOn) {
+        bgMusic.src = "https://www.youtube.com/embed/f1rq13XtvSk?autoplay=1&loop=1&playlist=f1rq13XtvSk";
+        toggleBtn.innerHTML = '<i class="fas fa-music"></i> Music: ON';
+      } else {
+        bgMusic.src = "";
+        toggleBtn.innerHTML = '<i class="fas fa-music-slash"></i> Music: OFF';
+      }
+    });
+  </script>
+</body>
+</html>
