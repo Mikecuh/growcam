@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GrowCam — Khmer Growtopia Private Server</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="growcam-logo.png" type="image/png">
+</head>
+
+<!-- NAVBAR -->
+<nav class="top-nav">
+  <ul class="nav-links">
+    <li><a href="main.html"class="active">Home</a></li>
+    <li><a href="assets.html">Shop</a></li>
+    <li><a href="howtoplay.html">How To Play</a></li>
+  </ul>
+</nav>
+  
+<body>
+<div class="pixel-bg"></div>
+
+<!-- LANGUAGE -->
+<div class="lang-switch">
+  <button onclick="toggleLang()">🌐 EN / KH</button>
+</div>
+
+<div class="container">
+
+<!-- HERO -->
+<section class="hero">
+  <h1 data-en="Growtopia Cambodia" data-kh="Growtopia Cambodia">
+    Growtopia Cambodia
+  </h1>
+
+  <!-- SERVER STATUS -->
+  <p style="margin-top:10px;font-weight:600;">
+    🟢 Server Is Online | <span id="playerCount">XXX</span> Players Online
+  </p>
+
+  <p data-en="Welcome to Growcam. We provide the best Growtopia Private Server with custom features and a strong community. Whether you’re a casual grower or a hardcore player, GrowCam delivers the ultimate GTPS experience."
+     data-kh="Welcome to Growcam. We provide the best Growtopia Private Server with custom features and a strong community. Whether you’re a casual grower or a hardcore player, GrowCam delivers the ultimate GTPS experience.">
+     Welcome to Growcam. We provide the best Growtopia Private Server with custom features and a strong community. Whether you’re a casual grower or a hardcore player, GrowCam delivers the ultimate GTPS experience.
+  </p>
+
+  <button class="btn" onclick="window.open('https://dsc.gg/growcam')">
+    <i class="fab fa-discord"></i>
+    <span data-en="Join Discord" data-kh="ចូល Discord">Join Discord</span>
+  </button>
+
+  <button class="btn" onclick="window.location.href='howtoplay.html'">
+    <i class="fas fa-play"></i>
+    <span data-en="How To Play" data-kh="ចាប់ផ្តើមលេង">How To Play</span>
+  </button>
+
+  <img src="growcam-logo.png" alt="GrowCam Logo" class="hero-logo">
+</div>
+</section>
+
+</div>
+
+<!-- NEWS / CHANGELOG -->
+<section class="section">
+  <h2 style="text-align:center;">News & Changelog</h2>
+
+  <div style="display:grid;gap:16px;margin-top:30px;">
+
+    <!-- NEWS ITEM -->
+    <div style="background:rgba(255,255,255,0.04);padding:18px;border-radius:14px;">
+      <h3 style="margin-bottom:6px;">🚀 Server Update v1.2</h3>
+      <p style="font-size:14px;color:#9aa3b2;margin-bottom:10px;">
+        January 12, 2026
+      </p>
+      <p>
+        • Added new custom items<br>
+        • Improved server stability<br>
+        • Fixed login delay issue
+      </p>
+    </div>
+
+    <!-- NEWS ITEM -->
+    <div style="background:rgba(255,255,255,0.04);padding:18px;border-radius:14px;">
+      <h3 style="margin-bottom:6px;">🌍 World of the Week Rewards</h3>
+      <p style="font-size:14px;color:#9aa3b2;margin-bottom:10px;">
+        January 8, 2026
+      </p>
+      <p>
+        • Winner gets exclusive title<br>
+        • Free gems reward<br>
+        • Featured on homepage
+      </p>
+    </div>
+
+    <!-- NEWS ITEM -->
+    <div style="background:rgba(255,255,255,0.04);padding:18px;border-radius:14px;">
+      <h3 style="margin-bottom:6px;">🔧 Maintenance Notice</h3>
+      <p style="font-size:14px;color:#9aa3b2;margin-bottom:10px;">
+        January 5, 2026
+      </p>
+      <p>
+        • Short downtime expected<br>
+        • Database optimization<br>
+        • Better performance after update
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2 style="text-align:left;">WORLD OF THE WEEK</h2>
+
+  <img 
+    src="world-of-the-week.png"
+    alt="World of the Week"
+    style="max-width:25%;border-radius:14px;cursor:pointer;margin-top:20px;"
+    onclick="openWorldModal(this.src)"
+  >
+
+  <p style="margin-top:10px;color:#9aa3b2;">
+    World of the Week
+  </p>
+</section>
+
+<footer>© 2026 Growtopia Cambodia • Not Affilated With Ubisoft</footer>
+
+<!-- FULLSCREEN MODAL -->
+<div id="worldModal" onclick="closeWorldModal()" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  z-index:999;
+  align-items:center;
+  justify-content:center;
+">
+  <img id="worldModalImg" style="max-width:95%;max-height:95%;border-radius:14px;">
+</div>
+
+<script src="script.js"></script>
+<script>
+function openWorldModal(src){
+  document.getElementById("worldModalImg").src = src;
+  document.getElementById("worldModal").style.display = "flex";
+}
+function closeWorldModal(){
+  document.getElementById("worldModal").style.display = "none";
+}
+</script>

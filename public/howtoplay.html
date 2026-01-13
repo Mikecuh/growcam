@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GrowCam — How-To-Play</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="growcam-logo.png" type="image/png">
+</head>
+
+<!-- NAVBAR -->
+<nav class="top-nav">
+  <ul class="nav-links">
+    <li><a href="main.html">Home</a></li>
+    <li><a href="assets.html">Shop</a></li>
+    <li><a href="howtoplay.html"class="active">How To Play</a></li>
+  </ul>
+</nav>
+  
+<body>
+<div class="pixel-bg"></div>
+
+<!-- LANGUAGE -->
+<div class="lang-switch">
+  <button onclick="toggleLang()">🌐 EN / KH</button>
+</div>
+
+<div class="container">
+
+<!-- HERO -->
+<section class="hero">
+  <h1 data-en="How To Play" data-kh="How To Play">
+    How To Play
+  </h1>
+
+  <p data-en="Welcome to How to Play. Here you will find instructions on how to connect to our private server."
+     data-kh="សូមស្វាគមន៍មកកាន់របៀបលេង។ នៅទីនេះអ្នកនឹងឃើញការណែនាំអំពីរបៀបភ្ជាប់ទៅServerរបស់យើង។">
+     Welcome to How to Play. Here you will find instructions on how to connect to our server.
+  </p>
+
+  <img src="growcam-logo.png" alt="GrowCam Logo" class="hero-logo">
+</section>
+
+<!-- DOWNLOAD -->
+<section class="section">
+  <h2 data-en="Download & Connect" data-kh="ទាញយក និងភ្ជាប់">Download & Connect</h2>
+
+  <div class="download-grid">
+    <div class="download-card">
+      <i class="fab fa-android"></i>
+      <h3>Android</h3>
+      <button class="btn" onclick="window.open(android2)">Download VHost</button>
+      <button class="btn" onclick="copyText(android)">Copy Powertunnel</button>
+    </div>
+
+    <div class="download-card">
+      <i class="fab fa-apple"></i>
+      <h3>iOS</h3>
+      <button class="btn" onclick="copyText(ios)">Copy iOS Host</button>
+    </div>
+
+    <div class="download-card">
+      <i class="fab fa-windows"></i>
+      <h3>Windows</h3>
+      <button class="btn" onclick="copyText(hosts)">Copy Windows Host</button>
+    </div>
+
+    <div class="download-card">
+      <i class="fab fa-apple"></i>
+      <h3>macOS</h3>
+      <button class="btn" onclick="copyText(hosts)">Copy macOS Host</button>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO PLAY -->
+<section class="section">
+  <h2 data-en="How to Play" data-kh="របៀបចូលលេង">How to Play</h2>
+
+  <div class="tabs">
+    <div class="tab-head">
+      <button class="tab-btn active" data-tab="android">Android</button>
+      <button class="tab-btn" data-tab="ios">iOS</button>
+      <button class="tab-btn" data-tab="windows">Windows</button>
+      <button class="tab-btn" data-tab="macOS">macOS</button>
+    </div>
+
+    <div class="tab-content active" id="android">
+      <ol>
+        <li>First, download Powertunnel APP from <a href="https://github.com/krlvm/PowerTunnel-Android/releases/download/v2.6.3/PowerTunnel.apk" target="_blank">here</a></li>
+        <li>Then click on the "Copy Powertunnel" button.</li>
+        <li>It will copy the powertunnel host link.</li>
+        <li>Open the powertunnel app, click the three-line icon, and click the host settings icon.</li>
+        <li>Paste the copied powertunnel host URL. Change the host update period from 12 hours to on start.</li>
+        <li>Done, then open "Growtopia" and Connect!</li>
+      </ol>
+    </div>
+
+    <div class="tab-content" id="ios">
+      <ol>
+        <li> Download App called: "Surge 5" from App Store. Surge 5 IOS</li>
+        <li>Press "OK",</li>
+        <li>Click on "Default.conf".</li>
+        <li>Click on "IMPORT" part - Download Profile from URL.</li>
+        <li>Then Click On "Copy iOS Host" Button</li>
+        <li>Put url from your copy when click IOS host button above and click "OK" and "Done"</li>
+        <li>Press "SETUP" and then agree to policy by clicking "OK" and "Allow" for VPN Configuration!.</li>
+        <li>Done, then open "Growtopia" and Connect!</li>
+      </ol>
+    </div>
+
+    <div class="tab-content" id="windows">
+      <ol>
+        <li>Press ⊞ Win+R (Windows Key + R) to open up the "Run" window.</li>
+        <li>Type in C:\Windows\System32\drivers\etc in the textbox.</li>
+        <li>Find file named hosts.</li>
+        <li>Right-click on "hosts" file and edit it with Notepad/text editor.</li>
+        <li>Click On "Copy Window Host" Button</li>
+        <li>Add ip above.</li>
+        <li>Then Save and logon to your growtopia</li>
+      </ol>
+    </div>
+
+    <div class="tab-content" id="macOS">
+      <ol>
+        <li>Open Finder and, in Finder’s menu bar, select Go > Go to Folder.</li>
+        <li>In the box that appears, type the following location: /private/etc/hosts and press Return.</li>
+        <li>Drag the hosts file to your desktop: A new Finder window will open with your Mac’s hosts file selected. Click and drag the file out of the Finder window and drop it on your desktop. This will allow us to freely edit the file.</li>
+        <li>simply double-click on the hosts file, and it will display the file's contents in TextEdit.</li>
+        <li>Copy the "MacOs Host" Button</li>
+        <li>Save the file and then put it back where you found it, in the /private/etc/ folder</li>
+        <li>Done! Now, open Growtopia and connect!</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>© 2026 Growtopia Cambodia • Not Affilated With Ubisoft</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+

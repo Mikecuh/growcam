@@ -1,0 +1,9 @@
+{
+  "name": "growcam",
+  "private": true,
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  }
+}
