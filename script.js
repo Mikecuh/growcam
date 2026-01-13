@@ -6,9 +6,9 @@ function toggleLang(){
   });
 }
 
-const android="https://growcam.vercel.app/growcam-android";
+const android="https://growcam.vercel.app/api/growcam-android";
 const android2="https://www.mediafire.com/file/99xylwpysecvgne/SpotyPS.txt/file";
-const ios="https://growcam.vercel.app/growcam";
+const ios="https://growcam.vercel.app/api/growcam-ios";
 const hosts=`91.134.85.13 growtopia1.com
 91.134.85.13 growtopia2.com
 91.134.85.13 www.growtopia1.com
