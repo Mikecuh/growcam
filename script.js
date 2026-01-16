@@ -14,6 +14,14 @@ const hosts=`91.134.85.13 growtopia1.com
 91.134.85.13 www.growtopia1.com
 91.134.85.13 www.growtopia2.com`;
 
+function openWorldModal(src){
+  document.getElementById("worldModalImg").src = src;
+  document.getElementById("worldModal").style.display = "flex";
+}
+function closeWorldModal(){
+  document.getElementById("worldModal").style.display = "none";
+}
+
 function copyText(text){
   navigator.clipboard.writeText(text);
   alert("Copied!");
